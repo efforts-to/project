@@ -33,6 +33,7 @@ import detailBottomBar from "./childComps/detailBottomBar";
 import backTop from "components/content/backTop/backTop";
 
 import {backTopMixin} from "../../common/mixin";
+import mapActions from "vuex";
 
 import GoodsList from "components/content/goods/GoodsList";
 import bscroll from "components/common/bscroll/bscroll";
@@ -127,7 +128,9 @@ export default {
       product.desc = this.goods.desc;
       product.realPrice = this.goods.realPrice;
       product.iid = this.iid;
-      this.$store.dispatch('addToCart',product)
+      this.$store.dispatch('addToCart',product).then(resolve=>{
+        console.log(resolve);
+      });
     }
   },
 

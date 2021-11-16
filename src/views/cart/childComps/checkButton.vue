@@ -1,5 +1,5 @@
 <template>
-  <div class="check-button" :class="{check:isChecked}">
+  <div class="check-button" :class="{checkActive:isChecked}">
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   border: 2px solid var(--color-high-text);
 }
 
-.check{
+.checkActive{
   background-color: var(--color-high-text);
 }
 </style>

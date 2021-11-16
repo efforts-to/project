@@ -2,7 +2,7 @@
   <div class="cart-list">
     <bscroll
       class="content"
-      :probeType="0"
+      :probe-type="0"
     >
         <cart-list-item
           v-for="(item,index) in cartList"
@@ -32,6 +32,9 @@ export default {
   components:{
     bscroll,
     cartListItem
+  },
+  methods:{
+    
   }
 }
 </script>
@@ -39,6 +42,7 @@ export default {
 <style scoped>
 .cart-list{
   height: calc(100% - 44px - 49px - 49px);
+  overflow: hidden;
 }
 .content{
   height: 100%

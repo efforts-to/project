@@ -7,7 +7,7 @@
     </nav-bar>
 
     <!--商品列表-->
-    <cart-list></cart-list>
+    <cart-list />
 
 
 <!--    底部汇总    -->

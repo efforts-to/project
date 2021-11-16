@@ -4,6 +4,7 @@
       <check-button
         class="check-button"
         :is-checked="isSelectAll"
+        @click.native="isSelect"
       />
       <span>全部</span>
     </div>
@@ -37,23 +38,34 @@ export default {
       },0).toFixed(2);
     },
     isSelectAll(){
+      //如果cartList的长度为0，说明购物车没有数据，返回false
+      if(this.cartList.length == 0 ){
+        return false;
+      }
       // 通过filter，如果有没有选中的商品，那么返回值是true，那么必定会有一个数组，再对数组取反，返回false
       // return !(this.cartList.filter(ele=>{
       //   return !ele.checked
       // }).length)
 
-      //通过find，查找checked为false的商品，然后返回其下标
+      //通过find，查找checked为false的商品,如果checked为false，返回当前对象，然后将当前对象转为false传给子组件
       return !(this.cartList.find(ele=>{
         return !ele.checked;
-      }))
+      }));
 
     }
   },
   methods:{
     isSelect(){
-      // this.cartList.find(e=>{
-      //   console.log(e.checked = true)
-      // })
+      console.log(this.isSelectAll);
+      if(this.isSelectAll){
+        this.cartList.forEach(item=>{
+          item.checked = false;
+        })
+      }else{
+        this.cartList.forEach(item=>{
+          item.checked = true;
+        })
+      }
     }
   }
 }
